@@ -1,0 +1,33 @@
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <br>
+    <h2 class="text-center">Detalles de la Habitacion</h2>
+
+    <br>
+    <div class="card container" style="width: 20rem;">
+        <br>
+        <div class="card-body">
+            <div>
+                <label><b>ID : </b> {{habitacion.id}}</label>
+            </div>
+            <div>
+                <label><b>Nombre : </b> {{habitacion.nombrehabitacion}}</label>
+            </div>
+            <div>
+                <label><b>Tipo : </b> {{habitacion.tipohabitacion}}</label>
+            </div>
+            <div>
+                <label><b>Numero de Camas: </b> {{habitacion.aforo}}</label>
+            </div>
+            <div>
+                <label><b>Precio por Noche : </b> s/.{{habitacion.precioNoche}}.00</label>
+            </div>
+            <br>
+            <a routerLink="/habitaciones" class="btn btn-secondary">Volver</a>
+        </div>
+    </div>
+
+</div>

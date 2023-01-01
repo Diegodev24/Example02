@@ -1,0 +1,83 @@
+<br>
+<br>
+<br>
+<br>
+<div class="col-md-6 offset-md-3">
+    <br>
+    <h3 class="text-center">Registro de Habitacion</h3>
+    <br>
+    <form (ngSubmit)="onSubmit()" #habitacionForm="ngForm">
+        <div class="card container" style="width: 20rem;">
+            <br>
+        <div class="form-group">
+            <label>Nombre Habitacion : </label>
+            <input type="text" class="form-control" 
+            id="nombrehabitacion"
+            [(ngModel)] = "habitacion.nombrehabitacion"
+            name="nombrehabitacion"
+            required
+            minlength="5" maxlength="25"
+            placeholder="Digite el nombre de la habitacion"
+            #nombre = "ngModel">
+            <div class="alert alert-danger" *ngIf="nombre.invalid &&(nombre.dirty || nombre.touched)">
+                <div *ngIf="nombre.errors.required">
+                    Digite un nombre
+                </div>
+                <div *ngIf="nombre.errors.minlength">
+                    El nombre tiene que contener como minimo 5 caracteres
+                </div>
+                <div *ngIf="nombre.errors.maxlength">
+                    El nombre tiene que contener como maximo 25 caracteres
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="form-group">
+            <label>Tipo Habitacion : </label>
+            <select name="seleccionar" type="text" class="form-control" 
+            id="tipohabitacion"
+            [(ngModel)] = "habitacion.tipohabitacion"
+            name="tipohabitacion" required placeholder="Seleccione una opcion">
+                <option>Pareja</option>
+                <option>Individual</option>
+                <option>Familiar</option>
+            </select>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Nro de Camas : </label>
+            <input type="number" class="form-control" 
+            id="aforo"
+            [(ngModel)] = "habitacion.aforo"
+            name="aforo"
+            required placeholder="Digite el numero de camas" #aforo = "ngModel">
+            <div class="alert alert-danger" *ngIf="aforo.invalid &&(aforo.dirty || aforo.touched)">
+                <div *ngIf="aforo.errors.required">
+                    Digite una cantidad
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Precio por Noche : </label>
+            <input type="number" class="form-control" 
+            id="precioNoche"
+            [(ngModel)] = "habitacion.precioNoche"
+            name="precioNoche"
+            required placeholder="Digite el precio por Noche" #precio = "ngModel">
+            <div class="alert alert-danger" *ngIf="aforo.invalid &&(precio.dirty || precio.touched)">
+                <div *ngIf="precio.errors.required">
+                    Digite un monto
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="d-grid gap2 d-md-flex p-3 justify-content-between">
+            <button class="btn btn-success btn-lg" [disabled]="!habitacionForm.form.valid">Registrar</button>
+            <a routerLink="/habitaciones" class="btn btn-danger btn-lg">Cancelar</a>
+        </div>
+        
+    </div>
+    </form>
+</div>

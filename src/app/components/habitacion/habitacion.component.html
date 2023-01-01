@@ -1,0 +1,42 @@
+<br>
+<br>
+<br>
+<br>
+<h2 class="text-center">Lista Habitaciones</h2>
+<br>
+<div class="table-responsive">
+
+    <div class="container">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button (click)="crearHabitacion()" class="btn btn-primary">Nueva Habitacion</button>
+        </div>
+        <br>
+
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr class="text-center">
+                    <th>Nombre de Habitacion</th>
+                    <th>Tipo de Habitacion</th>
+                    <th>Nro de Camas</th>
+                    <th>Precio por Noche</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="container">
+                <tr *ngFor="let habitacion of habitaciones" class="container" class="text-center">
+                    <td>{{habitacion.nombrehabitacion}}</td>
+                    <td>{{habitacion.tipohabitacion}}</td>
+                    <td>{{habitacion.aforo}}</td>
+                    <td>s/.{{habitacion.precioNoche}}.00</td>
+                    <td>
+                        <button (click)="actualizarHabitacion(habitacion.id)" class="btn btn-warning">Editar</button>
+                        <button (click)="verDetalles(habitacion.id)" class="btn btn-info"
+                            style="margin-left: 10px;">Detalles</button>
+                        <button (click)="eliminarHabitacion(habitacion.id)" class="btn btn-danger"
+                            style="margin-left : 10px;">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
